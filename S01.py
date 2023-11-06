@@ -1,5 +1,8 @@
 from psychopy import monitors, visual
 
+# -----------------------------------------------------------------------------
+# /// Set up monitor and window
+
 monitor = monitors.Monitor('prim',
                            width=28.6,
                            distance=57)
@@ -11,13 +14,27 @@ win = visual.Window(monitor=monitor,
                     pos=[0, 0],
                     color='gray')
 
-my_circle = visual.Circle(win,
-                          radius=2,
-                          fillColor='black',
-                          pos=[0, 0])
+# -----------------------------------------------------------------------------
+# /// Create visual items
+
+my_disc = visual.Circle(win,
+                        radius=1,
+                        fillColor='black',
+                        pos=[0, 1])
+
+my_block = visual.Rect(win,
+                       size=[1, 1],
+                       fillColor='blue',
+                       pos=[0, -2])
+
+# -----------------------------------------------------------------------------
+# /// Run stimulus
 
 for iframe in range(60):
-    my_circle.draw()
+    my_disc.draw()
+    my_block.draw()
     win.flip()
+
+# -----------------------------------------------------------------------------
 
 win.close()
